@@ -129,19 +129,6 @@ body {
   100% { transform: translateY(115vh) rotate(360deg) scale(1.1); opacity: 0; }
 }
 
-/* Top Sacred Cross & Laurel Emblem */
-.gate-top-bar {
-  position: relative;
-  z-index: 3;
-  margin-top: 6px;
-}
-.gate-cross-icon {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.7));
-}
-
 /* Center Wedding Invitation Calligraphy */
 .gate-center-content {
   position: relative;
@@ -189,36 +176,39 @@ body {
   padding-bottom: 8px;
 }
 .gate-scroll-cue {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  opacity: 0.9;
+  gap: 8px;
   cursor: pointer;
-  transition: opacity 0.25s, transform 0.25s;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .gate-scroll-cue:hover {
-  opacity: 1;
   transform: translateY(2px);
 }
 .gate-scroll-cue span {
   font-family: 'Cinzel', serif;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.42em;
   color: #FFFFFF;
   text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.85);
 }
-.gate-scroll-line {
-  width: 1.5px;
-  height: 24px;
-  background: linear-gradient(180deg, var(--gold-light), transparent);
-  animation: scrollDown 2s infinite ease-in-out;
+.gate-scroll-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceChevron 2.2s infinite ease-in-out;
 }
-@keyframes scrollDown {
-  0%, 100% { transform: translateY(0); opacity: 0.35; }
-  50% { transform: translateY(8px); opacity: 1; }
+.gate-scroll-chevron {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+}
+@keyframes bounceChevron {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(5px); opacity: 1; }
 }
 
 /* ═══════════════════════════════════════
@@ -262,78 +252,79 @@ body {
   margin-bottom: 24px;
 }
 
-.monogram-diamond-crest {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 76px;
-  height: 76px;
-  border: 1.5px solid var(--gold);
-  transform: rotate(45deg);
-  margin: 12px auto 26px;
-  background: var(--cream);
-  box-shadow: 0 4px 14px rgba(197, 152, 74, 0.2);
-}
-.monogram-inner-text {
-  transform: rotate(-45deg);
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--maroon);
-  letter-spacing: 0.05em;
+.monogram-seal-wrap {
   display: flex;
   align-items: center;
-  gap: 3px;
+  justify-content: center;
+  margin: 10px auto 26px;
 }
-.monogram-inner-text span {
-  font-size: 14px;
-  color: var(--gold-dark);
-  font-family: 'Cinzel', serif;
+.monogram-royal-crest {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 3px 10px rgba(197, 152, 74, 0.22));
+  transition: transform 0.3s ease;
+}
+.monogram-royal-crest:hover {
+  transform: scale(1.03);
 }
 
-.intro-lifetime-quote {
+/* Luxury Lineage Pedigree Stationery (No clunky box) */
+.lineage-pedigree {
+  max-width: 360px;
+  margin: 28px auto 6px;
+  text-align: center;
+  position: relative;
+}
+.lineage-branch {
+  padding: 6px 12px;
+}
+.lineage-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.lineage-family-names {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--maroon);
+  line-height: 1.35;
+}
+.lineage-subtext {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 14.5px;
+  font-size: 12.5px;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 22px;
+  margin-top: 3px;
+  letter-spacing: 0.03em;
 }
-
-.parents-box {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: #2E1F16;
-  line-height: 1.9;
+.lineage-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+.lineage-hairline {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 152, 74, 0.45), transparent);
+}
+.lineage-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: var(--cream);
-  padding: 20px 18px;
-  border-radius: 6px;
-  border: 1px solid rgba(197, 152, 74, 0.25);
-  max-width: 340px;
-  margin: 0 auto;
-}
-.parents-box strong {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--maroon);
-  display: block;
-}
-.parents-sub {
-  font-size: 11px;
-  font-style: italic;
-  color: var(--text-muted);
-  display: block;
-  margin-top: 2px;
-}
-.heart-divider {
-  font-size: 14px;
-  color: var(--maroon);
-  margin: 10px 0;
-  line-height: 1;
+  border: 1px solid rgba(197, 152, 74, 0.35);
+  box-shadow: 0 2px 6px rgba(42, 29, 21, 0.06);
 }
 
 /* ═══════════════════════════════════════
@@ -776,21 +767,22 @@ body {
   margin: 0 auto 24px;
 }
 .circle-badge {
-  background: var(--cream);
-  border: 1px solid rgba(197, 152, 74, 0.4);
-  padding: 8px 16px;
-  border-radius: 20px;
+  background: var(--white);
+  border: 1.2px solid rgba(197, 152, 74, 0.45);
+  padding: 9px 18px;
+  border-radius: 24px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11.5px;
   font-weight: 500;
   color: var(--text-main);
   letter-spacing: 0.04em;
-  box-shadow: 0 2px 6px rgba(42, 29, 21, 0.04);
+  box-shadow: 0 3px 8px rgba(42, 29, 21, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.circle-badge.highlight {
-  background: var(--warm-sand);
+.circle-badge:hover {
+  transform: translateY(-2px);
   border-color: var(--gold-dark);
-  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(117, 34, 43, 0.12);
 }
 
 /* ═══════════════════════════════════════
@@ -1119,25 +1111,6 @@ body {
       <div class="petal p5"></div>
     </div>
 
-    <!-- Top Sacred Christian Cross & Laurel Wreath -->
-    <div class="gate-top-bar rv">
-      <svg class="gate-cross-icon" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Latin Cross with Laurel/Olive Branches (Matching Page 1 of Official PDF) -->
-        <circle cx="27" cy="27" r="25" stroke="#EBD5A0" stroke-width="1.2" opacity="0.85"/>
-        <!-- Latin Cross -->
-        <path d="M27 12 L27 40" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
-        <path d="M18 20 L36 20" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
-        <!-- Left Laurel Leaves -->
-        <path d="M19 36 C16 32 16 26 20 22" stroke="#EBD5A0" stroke-width="1.3" stroke-linecap="round"/>
-        <circle cx="16" cy="30" r="1.8" fill="#EBD5A0"/>
-        <circle cx="18" cy="25" r="1.8" fill="#EBD5A0"/>
-        <!-- Right Laurel Leaves -->
-        <path d="M35 36 C38 32 38 26 34 22" stroke="#EBD5A0" stroke-width="1.3" stroke-linecap="round"/>
-        <circle cx="38" cy="30" r="1.8" fill="#EBD5A0"/>
-        <circle cx="36" cy="25" r="1.8" fill="#EBD5A0"/>
-      </svg>
-    </div>
-
     <!-- Center Wedding Invitation Announcement -->
     <div class="gate-center-content rv d1">
       <div class="gate-inv-subtitle">
@@ -1151,11 +1124,15 @@ body {
       <div class="gate-script-names">Varsha</div>
     </div>
 
-    <!-- Bottom "Let's Celebrate" Cue -->
+    <!-- Bottom "Let's Celebrate" Cue with Aesthetic Chevron -->
     <div class="gate-bottom-strip rv d2">
       <div class="gate-scroll-cue" onclick="scrollToIntro()">
         <span>LET'S CELEBRATE</span>
-        <div class="gate-scroll-line"></div>
+        <div class="gate-scroll-indicator">
+          <svg class="gate-scroll-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 9L12 15L18 9" stroke="#EBD5A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
       </div>
     </div>
   </header>
@@ -1172,24 +1149,58 @@ body {
     </p>
     <div class="intro-verse-ref rv d1">Ephesians 5 : 2</div>
 
-    <!-- Diamond Laurel Crest Monogram (Exact from PDF Page 2) -->
-    <div class="monogram-diamond-crest rv d1">
-      <div class="monogram-inner-text">
-        S<span>&amp;</span>V
-      </div>
+    <!-- Bespoke Royal Monogram Seal -->
+    <div class="monogram-seal-wrap rv d1">
+      <svg class="monogram-royal-crest" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer hairline ring -->
+        <circle cx="55" cy="55" r="51" stroke="#C5984A" stroke-width="0.8" opacity="0.6"/>
+        <!-- Inner beaded ring -->
+        <circle cx="55" cy="55" r="47" stroke="#C5984A" stroke-width="1" stroke-dasharray="2 3" opacity="0.85"/>
+        <!-- Innermost subtle solid ring -->
+        <circle cx="55" cy="55" r="43" stroke="#C5984A" stroke-width="0.5" opacity="0.4"/>
+        <!-- Left Olive/Laurel Wreath -->
+        <path d="M34 72 C25 62 25 48 34 38" stroke="#C5984A" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="28" cy="45" rx="3.5" ry="1.8" transform="rotate(-30 28 45)" fill="#C5984A" opacity="0.9"/>
+        <ellipse cx="26" cy="55" rx="3.5" ry="1.8" transform="rotate(5 26 55)" fill="#C5984A" opacity="0.9"/>
+        <ellipse cx="29" cy="65" rx="3.5" ry="1.8" transform="rotate(35 29 65)" fill="#C5984A" opacity="0.9"/>
+        <!-- Right Olive/Laurel Wreath -->
+        <path d="M76 72 C85 62 85 48 76 38" stroke="#C5984A" stroke-width="1.2" stroke-linecap="round"/>
+        <ellipse cx="82" cy="45" rx="3.5" ry="1.8" transform="rotate(30 82 45)" fill="#C5984A" opacity="0.9"/>
+        <ellipse cx="84" cy="55" rx="3.5" ry="1.8" transform="rotate(-5 84 55)" fill="#C5984A" opacity="0.9"/>
+        <ellipse cx="81" cy="65" rx="3.5" ry="1.8" transform="rotate(-35 81 65)" fill="#C5984A" opacity="0.9"/>
+        <!-- Top star & bottom flourish dot -->
+        <polygon points="55,17 56.5,21 60,21 57,23.5 58,27 55,24.5 52,27 53,23.5 50,21 53.5,21" fill="#C5984A"/>
+        <circle cx="55" cy="93" r="2" fill="#C5984A"/>
+        <!-- Letters S & V in regal Roman Serif -->
+        <text x="42" y="63" font-family="'Cinzel Decorative', 'Cinzel', serif" font-size="25" font-weight="700" fill="#75222B" text-anchor="middle">S</text>
+        <text x="55" y="59" font-family="'Cinzel', serif" font-size="13" font-weight="400" fill="#C5984A" text-anchor="middle">&amp;</text>
+        <text x="68" y="63" font-family="'Cinzel Decorative', 'Cinzel', serif" font-size="25" font-weight="700" fill="#75222B" text-anchor="middle">V</text>
+      </svg>
     </div>
 
-    <p class="intro-lifetime-quote rv d2">
-      "Two hearts, one faith, United in Love,<br>Beginning a lifetime together."
-    </p>
+    <!-- Luxury Lineage Pedigree (Bespoke Letterpress Announcement) -->
+    <div class="lineage-pedigree rv d2">
+      <div class="lineage-branch">
+        <div class="lineage-label">Son of</div>
+        <h3 class="lineage-family-names">Mr. Prakash &amp; Mrs. Elizabeth</h3>
+        <div class="lineage-subtext">Parents of the Groom</div>
+      </div>
 
-    <!-- Family Parents Lineage from PDF -->
-    <div class="parents-box rv d2">
-      <strong>S/O. PRAKASH &amp; ELIZABETH</strong>
-      <span class="parents-sub">(Parents of the Groom)</span>
-      <div class="heart-divider">❤</div>
-      <strong>D/O. SURESH &amp; GOWRI</strong>
-      <span class="parents-sub">(Parents of the Bride)</span>
+      <div class="lineage-connector">
+        <span class="lineage-hairline"></span>
+        <div class="lineage-badge-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--maroon)"/>
+          </svg>
+        </div>
+        <span class="lineage-hairline"></span>
+      </div>
+
+      <div class="lineage-branch">
+        <div class="lineage-label">Daughter of</div>
+        <h3 class="lineage-family-names">Mr. Suresh &amp; Mrs. Gowri</h3>
+        <div class="lineage-subtext">Parents of the Bride</div>
+      </div>
     </div>
   </section>
 
@@ -1354,10 +1365,10 @@ body {
     </p>
 
     <div class="circle-grid rv d2">
-      <div class="circle-badge highlight">Sugirtha &amp; Family</div>
-      <div class="circle-badge highlight">Selsha &amp; Family</div>
+      <div class="circle-badge">Sugirtha &amp; Family</div>
+      <div class="circle-badge">Selsha &amp; Family</div>
       <div class="circle-badge">Simon</div>
-      <div class="circle-badge highlight">Prince &amp; Family</div>
+      <div class="circle-badge">Prince &amp; Family</div>
       <div class="circle-badge">Mani</div>
       <div class="circle-badge">Manoj</div>
       <div class="circle-badge">Augustine</div>
