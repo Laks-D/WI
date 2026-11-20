@@ -126,35 +126,35 @@ body {
 
 /* ═══════════════════════════════════════
    1. HERO SECTION
-   Full-Bleed Palace Gateway with Falling Rose Petals
+   Full-Bleed Couple Photo with Falling Rose Petals
    ═══════════════════════════════════════ */
 .hero-palace-gate {
   position: relative;
-  height: 86vh;
-  min-height: 520px;
-  max-height: 640px;
+  height: 88vh;
+  min-height: 540px;
+  max-height: 660px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: url('img/palace.jpg') center bottom / cover no-repeat;
+  background: url('img/couple_real.jpg') center 12% / cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 22px 20px 16px;
   overflow: hidden;
 }
 
-/* Atmospheric warm shading for maximum readability */
+/* Atmospheric warm shading for maximum readability over couple photo */
 .hero-palace-gate::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(22, 10, 6, 0.65) 0%,
-    rgba(22, 10, 6, 0.28) 25%,
-    rgba(22, 10, 6, 0.52) 60%,
-    rgba(22, 10, 6, 0.88) 100%
+    rgba(18, 8, 5, 0.68) 0%,
+    rgba(18, 8, 5, 0.20) 26%,
+    rgba(18, 8, 5, 0.40) 58%,
+    rgba(18, 8, 5, 0.90) 100%
   );
   pointer-events: none;
 }
@@ -194,8 +194,9 @@ body {
   position: relative;
   z-index: 3;
   margin: auto 0;
-  padding: 8px 12px;
-  background: transparent;
+  padding: 14px 16px;
+  background: radial-gradient(ellipse at center, rgba(18, 8, 5, 0.42) 0%, rgba(18, 8, 5, 0) 78%);
+  border-radius: 20px;
   border: none;
   box-shadow: none;
   backdrop-filter: none;
@@ -420,7 +421,7 @@ body {
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  background: var(--ivory);
+  background: #120805;
 }
 
 .torn-edge-top {
@@ -434,13 +435,16 @@ body {
   display: block;
 }
 
-.torn-photo-img {
+.torn-photo-img,
+.torn-video-player {
   width: 100%;
-  height: 520px;
+  height: 540px;
+  max-height: 75vh;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   display: block;
   filter: brightness(0.98) contrast(1.02);
+  background: #120805;
 }
 
 .torn-edge-bottom {
@@ -452,6 +456,92 @@ body {
   z-index: 5;
   pointer-events: none;
   display: block;
+}
+
+/* Luxury Floating Sound Controller Badge */
+.video-sound-toggle {
+  position: absolute;
+  bottom: 24px;
+  right: 18px;
+  z-index: 10;
+  background: rgba(18, 8, 5, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(235, 213, 160, 0.55);
+  border-radius: 30px;
+  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFF2D1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: all 0.22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.video-sound-toggle:active {
+  transform: scale(0.94);
+  background: var(--maroon);
+  border-color: var(--gold);
+}
+@media (hover: hover) {
+  .video-sound-toggle:hover {
+    background: var(--maroon);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+}
+.v-sound-icon {
+  font-size: 11px;
+}
+.v-sound-text {
+  letter-spacing: 0.16em;
+}
+
+/* Play/Pause overlay when paused */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.video-play-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-play-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(117, 34, 43, 0.88);
+  border: 1.5px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.video-play-circle:active {
+  transform: scale(0.92);
+}
+.v-play-svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+  fill: #FFFFFF;
 }
 
 .tear-quote-card {
@@ -1612,12 +1702,49 @@ body {
 
   <!-- ═══════════════════════════════════════
        3. TORN PAPER / DECKLE EDGE LETTER TEAR
-       (Real Couple Photo of Stephen & Varsha)
+       (Bespoke Wedding Film / Couple Video of Stephen & Varsha)
        ═══════════════════════════════════════ -->
   <section class="letter-tear-section rv">
-    <div class="torn-photo-wrapper">
+    <div class="torn-photo-wrapper" id="videoWrapper">
       <img src="img/torn_edge_top.png" class="torn-edge-top" alt="">
-      <img src="img/couple_real.jpg" class="torn-photo-img" alt="Stephen &amp; Varsha">
+      
+      <!-- Couple Video with Autoplay, Loop, Playsinline, Poster -->
+      <video
+        id="coupleVideo"
+        class="torn-video-player"
+        playsinline
+        webkit-playsinline
+        muted
+        autoplay
+        loop
+        preload="auto"
+        poster="img/video_poster.jpg"
+      >
+        <source src="img/couple_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Luxury Floating Sound Controller Badge -->
+      <button
+        type="button"
+        id="videoSoundBtn"
+        class="video-sound-toggle"
+        onclick="toggleVideoSound(event)"
+        aria-label="Toggle sound"
+      >
+        <span id="videoSoundIcon" class="v-sound-icon">🔇</span>
+        <span id="videoSoundText" class="v-sound-text">Sound Off</span>
+      </button>
+
+      <!-- Play/Pause Overlay when paused -->
+      <div id="videoPlayOverlay" class="video-play-overlay" onclick="toggleVideoPlay()">
+        <div class="video-play-circle">
+          <svg viewBox="0 0 24 24" class="v-play-svg">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </div>
+
       <img src="img/torn_edge_bottom.png" class="torn-edge-bottom" alt="">
     </div>
 
@@ -2065,6 +2192,62 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ═══════════════════════════════════════
+   COUPLE WEDDING VIDEO CONTROLLER
+   ═══════════════════════════════════════ */
+const coupleVideo = document.getElementById('coupleVideo');
+const videoSoundBtn = document.getElementById('videoSoundBtn');
+const videoSoundIcon = document.getElementById('videoSoundIcon');
+const videoSoundText = document.getElementById('videoSoundText');
+const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+
+if (coupleVideo) {
+  // Autoplay video on scroll into view
+  const vidObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        coupleVideo.play().catch(() => {});
+      } else {
+        coupleVideo.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  vidObserver.observe(coupleVideo);
+
+  // Tap video to toggle play/pause
+  coupleVideo.addEventListener('click', () => {
+    toggleVideoPlay();
+  });
+}
+
+function toggleVideoPlay() {
+  if (!coupleVideo) return;
+  if (coupleVideo.paused) {
+    coupleVideo.play();
+    if (videoPlayOverlay) videoPlayOverlay.classList.remove('show');
+  } else {
+    coupleVideo.pause();
+    if (videoPlayOverlay) videoPlayOverlay.classList.add('show');
+  }
+}
+
+function toggleVideoSound(e) {
+  if (e) e.stopPropagation();
+  if (!coupleVideo) return;
+  coupleVideo.muted = !coupleVideo.muted;
+  if (coupleVideo.muted) {
+    if (videoSoundIcon) videoSoundIcon.textContent = '🔇';
+    if (videoSoundText) videoSoundText.textContent = 'Sound Off';
+  } else {
+    if (videoSoundIcon) videoSoundIcon.textContent = '🔊';
+    if (videoSoundText) videoSoundText.textContent = 'Sound On';
+    if (coupleVideo.paused) {
+      coupleVideo.play();
+      if (videoPlayOverlay) videoPlayOverlay.classList.remove('show');
+    }
+  }
 }
 
 const observer = new IntersectionObserver((entries) => {
