@@ -192,6 +192,29 @@ body {
 }
 
 /* Top Royal Header Announcement (Above heads in dark ceiling space) */
+.hero-royal-frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(235, 213, 160, 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.25);
+}
+.hero-royal-frame::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(235, 213, 160, 0.18);
+  border-radius: 2px;
+}
+.hero-royal-crest-mini {
+  font-size: 11px;
+  color: var(--gold-light);
+  letter-spacing: 0.35em;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
 .hero-top-announcement {
   position: relative;
   z-index: 3;
@@ -1015,96 +1038,6 @@ body {
   line-height: 1.5;
 }
 
-/* ═══════════════════════════════════════
-   7. CIRCLE OF LOVE SECTION
-   (Family & Friends Honor Roll from Official PDF)
-   ═══════════════════════════════════════ */
-.circle-love-section {
-  position: relative;
-  background: var(--ivory);
-  padding: 48px 24px 42px;
-  text-align: center;
-}
-.circle-tag {
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.35em;
-  color: var(--gold-dark);
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.circle-title {
-  font-family: 'Cinzel', serif;
-  font-size: 21px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--maroon);
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-.circle-ornament {
-  width: 48px;
-  height: 1.5px;
-  background: var(--gold);
-  margin: 12px auto 18px;
-}
-.circle-sub {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 13.5px;
-  color: var(--text-muted);
-  max-width: 320px;
-  margin: 0 auto 24px;
-}
-
-/* Feature 6: Mobile Touch-Responsive Circle of Love Badges */
-.circle-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  max-width: 360px;
-  margin: 0 auto 24px;
-}
-.circle-badge {
-  background: linear-gradient(145deg, #FFFFFF 0%, #FAF7F0 100%);
-  border: 1.2px solid rgba(197, 152, 74, 0.55);
-  padding: 8px 16px;
-  border-radius: 24px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11.5px;
-  font-weight: 500;
-  color: var(--text-main);
-  letter-spacing: 0.04em;
-  box-shadow: 0 2px 7px rgba(42, 29, 21, 0.06), inset 0 1px 0 #FFFFFF;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-}
-.circle-badge::before {
-  content: "✦";
-  font-size: 8px;
-  color: var(--gold-dark);
-  opacity: 0.85;
-}
-.circle-badge:active {
-  transform: scale(0.95);
-  border-color: var(--maroon);
-  background: #FFF5E8;
-  color: var(--maroon);
-  box-shadow: 0 4px 14px rgba(117, 34, 43, 0.2);
-}
-@media (hover: hover) {
-  .circle-badge:hover {
-    transform: translateY(-2px);
-    border-color: var(--maroon);
-    background: #FFFBF5;
-    box-shadow: 0 6px 14px rgba(117, 34, 43, 0.12);
-  }
-}
 
 /* ═══════════════════════════════════════
    8. JOIN US HERE / DUAL VENUES
@@ -1160,22 +1093,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 12px;
+  width: 100%;
 }
 .v-badge-line {
-  width: 26px;
+  flex: 1;
+  max-width: 32px;
+  min-width: 10px;
   height: 1px;
   background: var(--gold);
-  opacity: 0.65;
+  opacity: 0.7;
 }
 .v-badge-title {
   font-family: 'Cinzel', serif;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.26em;
+  font-size: clamp(9.5px, 2.7vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: var(--maroon);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .v-church-name {
   font-family: 'Cinzel', serif;
@@ -1533,6 +1470,9 @@ body {
        Full Bleed Palace Gateway with Falling Rose Petals
        ═══════════════════════════════════════ -->
   <header class="hero-palace-gate" id="heroGate">
+    <!-- Royal Inset Border Frame -->
+    <div class="hero-royal-frame"></div>
+
     <!-- Feature 2: Ambient Golden Floating Stardust Motes -->
     <div class="stardust-box">
       <span class="sd-mote sd-1"></span>
@@ -1554,6 +1494,7 @@ body {
 
     <!-- Top Royal Header Announcement (Above heads in dark ceiling space) -->
     <div class="hero-top-announcement rv d1">
+      <div class="hero-royal-crest-mini">✦ &nbsp; ✟ &nbsp; ✦</div>
       <div class="hero-top-eyebrow">WITH GREAT JOY, WE INVITE YOU TO CELEBRATE</div>
       <div class="hero-top-title">THE WEDDING OF</div>
     </div>
@@ -1878,35 +1819,6 @@ body {
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
-       7. CIRCLE OF LOVE SECTION
-       (Family & Friends Honor Roll from Official PDF)
-       ═══════════════════════════════════════ -->
-  <section class="circle-love-section">
-    <div class="circle-tag rv">With Love</div>
-    <h2 class="circle-title rv d1">From Our Circle of Love</h2>
-    <div class="circle-ornament rv d1"></div>
-    <p class="circle-sub rv d2">
-      Surrounded by the warmth, affection, and prayers of our beloved families and dearest friends
-    </p>
-
-    <div class="circle-grid rv d2">
-      <div class="circle-badge">Sugirtha &amp; Family</div>
-      <div class="circle-badge">Selsha &amp; Family</div>
-      <div class="circle-badge">Simon</div>
-      <div class="circle-badge">Prince &amp; Family</div>
-      <div class="circle-badge">Mani</div>
-      <div class="circle-badge">Manoj</div>
-      <div class="circle-badge">Augustine</div>
-      <div class="circle-badge">Ezhil</div>
-      <div class="circle-badge">Centhil</div>
-      <div class="circle-badge">Teja</div>
-      <div class="circle-badge">Kathir</div>
-      <div class="circle-badge">Hari</div>
-    </div>
-
-    <div style="font-size:18px; color:var(--gold-dark); opacity:0.85; margin-top:10px;">✦ &nbsp; ✦ &nbsp; ✦</div>
-  </section>
 
   <!-- ═══════════════════════════════════════
        8. JOIN US HERE / DUAL VENUES
@@ -1926,7 +1838,7 @@ body {
 
       <div class="v-header-badge">
         <span class="v-badge-line"></span>
-        <span class="v-badge-title">Holy Matrimony · 4:00 PM</span>
+        <span class="v-badge-title">Holy Matrimony &nbsp;•&nbsp; 4:00&nbsp;PM</span>
         <span class="v-badge-line"></span>
       </div>
       <h3 class="v-church-name">C.S.I. St. Bartholomew's Church</h3>
@@ -1950,7 +1862,7 @@ body {
 
       <div class="v-header-badge">
         <span class="v-badge-line"></span>
-        <span class="v-badge-title">Wedding Reception · 6:30 PM</span>
+        <span class="v-badge-title">Wedding Reception &nbsp;•&nbsp; 6:30&nbsp;PM</span>
         <span class="v-badge-line"></span>
       </div>
       <h3 class="v-church-name">C.S.I. St. Stephen's Tamil Church</h3>
