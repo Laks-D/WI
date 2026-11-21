@@ -1096,26 +1096,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
   width: 100%;
 }
 .v-badge-line {
   flex: 1;
-  max-width: 32px;
-  min-width: 10px;
+  max-width: 36px;
+  min-width: 12px;
   height: 1px;
   background: var(--gold);
   opacity: 0.7;
 }
 .v-badge-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(9.5px, 2.7vw, 11px);
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   color: var(--maroon);
   text-transform: uppercase;
   white-space: nowrap;
+}
+.v-time-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #FFF9ED 0%, #F5ECE0 100%);
+  border: 1.5px solid var(--gold);
+  color: var(--maroon);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 10px rgba(117, 34, 43, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.v-clock-icon {
+  color: var(--gold-dark);
 }
 .v-church-name {
   font-family: 'Cinzel', serif;
@@ -1841,8 +1861,17 @@ body {
 
       <div class="v-header-badge">
         <span class="v-badge-line"></span>
-        <span class="v-badge-title">Holy Matrimony &nbsp;•&nbsp; 4:00&nbsp;PM</span>
+        <span class="v-badge-title">Holy Matrimony</span>
         <span class="v-badge-line"></span>
+      </div>
+      <div>
+        <div class="v-time-pill">
+          <svg class="v-clock-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>4:00 PM</span>
+        </div>
       </div>
       <h3 class="v-church-name">C.S.I. St. Bartholomew's Church</h3>
       <div class="v-locality">Pammal, Chennai - 600075</div>
@@ -1865,8 +1894,17 @@ body {
 
       <div class="v-header-badge">
         <span class="v-badge-line"></span>
-        <span class="v-badge-title">Wedding Reception &nbsp;•&nbsp; 6:30&nbsp;PM</span>
+        <span class="v-badge-title">Wedding Reception</span>
         <span class="v-badge-line"></span>
+      </div>
+      <div>
+        <div class="v-time-pill">
+          <svg class="v-clock-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>6:30 PM</span>
+        </div>
       </div>
       <h3 class="v-church-name">C.S.I. St. Stephen's Tamil Church</h3>
       <div class="v-locality">Pallavaram, Chennai - 600043</div>
