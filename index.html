@@ -1092,41 +1092,53 @@ body {
   border-radius: 5px;
   pointer-events: none;
 }
-.v-event-header {
+.v-event-banner {
+  margin-bottom: 16px;
   text-align: center;
-  margin-bottom: 8px;
 }
-.v-event-name {
+.v-event-type {
   font-family: 'Cinzel', serif;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   color: var(--gold-dark);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
-.v-event-time {
+.v-event-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+.v-ornament-line {
+  flex: 1;
+  max-width: 60px;
+  min-width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 60%, var(--gold-dark));
+}
+.v-ornament-line.right {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold) 40%, transparent);
+}
+.v-time-large {
   font-family: 'Cinzel', serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--maroon);
-  line-height: 1.2;
-}
-.v-gold-flourish {
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 0.25em;
-  margin: 6px 0 12px;
-  opacity: 0.8;
+  line-height: 1;
+  white-space: nowrap;
 }
 .v-church-name {
   font-family: 'Cinzel', serif;
   font-size: 17.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   color: var(--text-main);
   line-height: 1.35;
+  margin-bottom: 6px;
 }
 .v-locality {
   font-family: 'Montserrat', sans-serif;
@@ -1135,7 +1147,7 @@ body {
   letter-spacing: 0.22em;
   color: var(--gold-dark);
   text-transform: uppercase;
-  margin: 5px 0 10px;
+  margin-bottom: 10px;
 }
 .v-address {
   font-family: 'Montserrat', sans-serif;
@@ -1144,17 +1156,18 @@ body {
   line-height: 1.65;
   color: var(--text-muted);
   max-width: 290px;
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 }
 .btn-open-maps {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  background: transparent;
-  color: var(--maroon);
-  border: 1.2px solid var(--maroon);
+  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+  color: #FFFDF8;
+  border: 1px solid var(--gold);
   text-decoration: none;
-  padding: 11px 24px;
+  padding: 12px 26px;
   border-radius: 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
@@ -1164,14 +1177,15 @@ body {
   cursor: pointer;
   transition: all 0.22s ease;
   -webkit-tap-highlight-color: transparent;
-  min-height: 44px; /* iOS recommended tap target */
+  min-height: 44px;
+  box-shadow: 0 4px 14px rgba(117, 34, 43, 0.25);
   box-sizing: border-box;
 }
 .btn-open-maps:active {
-  background: var(--maroon);
-  color: var(--white);
+  background: var(--maroon-dark);
+  color: var(--gold-light);
   transform: scale(0.97);
-  box-shadow: 0 4px 14px rgba(117, 34, 43, 0.22);
+  box-shadow: 0 2px 6px rgba(117, 34, 43, 0.35);
 }
 @media (hover: hover) {
   .btn-open-maps:hover {
@@ -1842,10 +1856,13 @@ body {
       <span class="corner-filigree bottom-left">✦</span>
       <span class="corner-filigree bottom-right">✦</span>
 
-      <div class="v-event-header">
-        <div class="v-event-name">Holy Matrimony</div>
-        <div class="v-event-time">4:00 PM</div>
-        <div class="v-gold-flourish">── &nbsp;✦&nbsp; ──</div>
+      <div class="v-event-banner">
+        <div class="v-event-type">Holy Matrimony</div>
+        <div class="v-event-time-row">
+          <span class="v-ornament-line"></span>
+          <span class="v-time-large">4:00 PM</span>
+          <span class="v-ornament-line right"></span>
+        </div>
       </div>
       <h3 class="v-church-name">C.S.I. St. Bartholomew's Church</h3>
       <div class="v-locality">Pammal, Chennai - 600075</div>
@@ -1866,10 +1883,13 @@ body {
       <span class="corner-filigree bottom-left">✦</span>
       <span class="corner-filigree bottom-right">✦</span>
 
-      <div class="v-event-header">
-        <div class="v-event-name">Wedding Reception</div>
-        <div class="v-event-time">6:30 PM</div>
-        <div class="v-gold-flourish">── &nbsp;✦&nbsp; ──</div>
+      <div class="v-event-banner">
+        <div class="v-event-type">Wedding Reception</div>
+        <div class="v-event-time-row">
+          <span class="v-ornament-line"></span>
+          <span class="v-time-large">6:30 PM</span>
+          <span class="v-ornament-line right"></span>
+        </div>
       </div>
       <h3 class="v-church-name">C.S.I. St. Stephen's Tamil Church</h3>
       <div class="v-locality">Pallavaram, Chennai - 600043</div>
