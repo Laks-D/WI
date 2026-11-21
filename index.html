@@ -137,24 +137,25 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: url('img/couple_real.jpg') center 12% / cover no-repeat;
+  background: url('img/couple_real.jpg') center top / cover no-repeat;
   color: #fff;
   text-align: center;
-  padding: 22px 20px 16px;
+  padding: 22px 20px 14px;
   overflow: hidden;
 }
 
-/* Atmospheric warm shading for maximum readability over couple photo */
+/* Atmospheric warm shading — Crystal clear over faces, soft contrast at bottom */
 .hero-palace-gate::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(18, 8, 5, 0.68) 0%,
-    rgba(18, 8, 5, 0.20) 26%,
-    rgba(18, 8, 5, 0.40) 58%,
-    rgba(18, 8, 5, 0.90) 100%
+    rgba(18, 8, 5, 0.25) 0%,
+    rgba(18, 8, 5, 0.0) 16%,
+    rgba(18, 8, 5, 0.0) 50%,
+    rgba(18, 8, 5, 0.45) 72%,
+    rgba(18, 8, 5, 0.85) 100%
   );
   pointer-events: none;
 }
@@ -189,44 +190,44 @@ body {
   100% { transform: translateY(115vh) rotate(360deg) scale(1.1); opacity: 0; }
 }
 
-/* Center Wedding Invitation Calligraphy */
+/* Center Wedding Invitation Calligraphy (Positioned gracefully in lower third, completely unblocking faces) */
 .gate-center-content {
   position: relative;
   z-index: 3;
-  margin: auto 0;
-  padding: 14px 16px;
-  background: radial-gradient(ellipse at center, rgba(18, 8, 5, 0.42) 0%, rgba(18, 8, 5, 0) 78%);
-  border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: 6px;
+  padding: 0 12px;
+  background: transparent;
   border: none;
   box-shadow: none;
   backdrop-filter: none;
 }
 .gate-inv-subtitle {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.26em;
   color: #FFFFFF;
   text-transform: uppercase;
-  line-height: 1.8;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 14px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
+  line-height: 1.6;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);
 }
 .gate-script-names {
   font-family: 'Pinyon Script', cursive;
-  font-size: clamp(62px, 17vw, 84px);
+  font-size: clamp(44px, 12.5vw, 58px);
   color: #FFFFFF;
-  line-height: 0.95;
+  line-height: 1.0;
   display: block;
-  text-shadow: 0 4px 24px rgba(0,0,0,0.95), 0 2px 6px rgba(0,0,0,0.95);
+  text-shadow: 0 3px 18px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.95);
 }
 .gate-script-amp {
   font-family: 'Cinzel', serif;
-  font-size: 24px;
+  font-size: 18px;
   color: var(--gold-light);
   display: block;
-  margin: 4px 0 2px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+  margin: 2px 0 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.85);
 }
 
 /* Bottom "Let's Celebrate" Cue */
@@ -456,51 +457,6 @@ body {
   z-index: 5;
   pointer-events: none;
   display: block;
-}
-
-/* Luxury Floating Sound Controller Badge */
-.video-sound-toggle {
-  position: absolute;
-  bottom: 24px;
-  right: 18px;
-  z-index: 10;
-  background: rgba(18, 8, 5, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(235, 213, 160, 0.55);
-  border-radius: 30px;
-  padding: 7px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #FFF2D1;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  transition: all 0.22s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.video-sound-toggle:active {
-  transform: scale(0.94);
-  background: var(--maroon);
-  border-color: var(--gold);
-}
-@media (hover: hover) {
-  .video-sound-toggle:hover {
-    background: var(--maroon);
-    border-color: var(--gold);
-    transform: translateY(-2px);
-  }
-}
-.v-sound-icon {
-  font-size: 11px;
-}
-.v-sound-text {
-  letter-spacing: 0.16em;
 }
 
 /* Play/Pause overlay when paused */
@@ -1724,18 +1680,6 @@ body {
         Your browser does not support the video tag.
       </video>
 
-      <!-- Luxury Floating Sound Controller Badge -->
-      <button
-        type="button"
-        id="videoSoundBtn"
-        class="video-sound-toggle"
-        onclick="toggleVideoSound(event)"
-        aria-label="Toggle sound"
-      >
-        <span id="videoSoundIcon" class="v-sound-icon">🔇</span>
-        <span id="videoSoundText" class="v-sound-text">Sound Off</span>
-      </button>
-
       <!-- Play/Pause Overlay when paused -->
       <div id="videoPlayOverlay" class="video-play-overlay" onclick="toggleVideoPlay()">
         <div class="video-play-circle">
@@ -2198,12 +2142,12 @@ function showToast(msg) {
    COUPLE WEDDING VIDEO CONTROLLER
    ═══════════════════════════════════════ */
 const coupleVideo = document.getElementById('coupleVideo');
-const videoSoundBtn = document.getElementById('videoSoundBtn');
-const videoSoundIcon = document.getElementById('videoSoundIcon');
-const videoSoundText = document.getElementById('videoSoundText');
 const videoPlayOverlay = document.getElementById('videoPlayOverlay');
 
 if (coupleVideo) {
+  // Ensure video stays muted and plays seamlessly on mobile
+  coupleVideo.muted = true;
+
   // Autoplay video on scroll into view
   const vidObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -2230,23 +2174,6 @@ function toggleVideoPlay() {
   } else {
     coupleVideo.pause();
     if (videoPlayOverlay) videoPlayOverlay.classList.add('show');
-  }
-}
-
-function toggleVideoSound(e) {
-  if (e) e.stopPropagation();
-  if (!coupleVideo) return;
-  coupleVideo.muted = !coupleVideo.muted;
-  if (coupleVideo.muted) {
-    if (videoSoundIcon) videoSoundIcon.textContent = '🔇';
-    if (videoSoundText) videoSoundText.textContent = 'Sound Off';
-  } else {
-    if (videoSoundIcon) videoSoundIcon.textContent = '🔊';
-    if (videoSoundText) videoSoundText.textContent = 'Sound On';
-    if (coupleVideo.paused) {
-      coupleVideo.play();
-      if (videoPlayOverlay) videoPlayOverlay.classList.remove('show');
-    }
   }
 }
 
