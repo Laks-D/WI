@@ -1093,41 +1093,43 @@ body {
   pointer-events: none;
 }
 .v-event-banner {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   text-align: center;
 }
 .v-event-type {
   font-family: 'Cinzel', serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  color: var(--gold-dark);
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--maroon);
   text-transform: uppercase;
   margin-bottom: 6px;
+  line-height: 1.3;
 }
 .v-event-time-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
 }
 .v-ornament-line {
   flex: 1;
-  max-width: 60px;
+  max-width: 48px;
   min-width: 20px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold) 60%, var(--gold-dark));
+  background: linear-gradient(90deg, transparent, var(--gold) 70%, var(--gold-dark));
+  opacity: 0.75;
 }
 .v-ornament-line.right {
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold) 40%, transparent);
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold) 30%, transparent);
 }
 .v-time-large {
   font-family: 'Cinzel', serif;
-  font-size: 22px;
+  font-size: 15.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--maroon);
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
   line-height: 1;
   white-space: nowrap;
 }
@@ -1163,36 +1165,35 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  color: #FFFDF8;
-  border: 1px solid var(--gold);
+  background: var(--ivory);
+  color: var(--maroon);
+  border: 1.3px solid var(--maroon);
   text-decoration: none;
-  padding: 12px 26px;
+  padding: 11px 26px;
   border-radius: 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.22s ease;
   -webkit-tap-highlight-color: transparent;
   min-height: 44px;
-  box-shadow: 0 4px 14px rgba(117, 34, 43, 0.25);
+  box-shadow: 0 2px 8px rgba(117, 34, 43, 0.08);
   box-sizing: border-box;
 }
 .btn-open-maps:active {
-  background: var(--maroon-dark);
-  color: var(--gold-light);
+  background: var(--maroon);
+  color: #FFFFFF;
   transform: scale(0.97);
-  box-shadow: 0 2px 6px rgba(117, 34, 43, 0.35);
 }
 @media (hover: hover) {
   .btn-open-maps:hover {
-    background: var(--maroon);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(117, 34, 43, 0.22);
+    background: #FFF5F6;
+    border-color: var(--maroon-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(117, 34, 43, 0.14);
   }
 }
 
