@@ -481,8 +481,11 @@ body {
   object-fit: cover;
   object-position: center center;
   display: block;
-  filter: brightness(0.98) contrast(1.02);
   background: #120805;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .torn-edge-bottom {
